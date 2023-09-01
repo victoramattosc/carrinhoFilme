@@ -15,18 +15,19 @@ import guardioes from "../../../assets/Filmes/guardioes.jpg";
 
 import Feather from "@expo/vector-icons/Feather";
 import Toolbar from "../../components/Toolbar";
+import Filmes from "../../components/Filmes";
 
 const width = Dimensions.get("screen").width;
 
 export default function Carrinho() {
   return (
-    
+
     <>
       <Toolbar/>
 
       <ScrollView>
         <Image source={topo} style={styles.topo} />
-        
+
         <View style={styles.carrinho}>
           <View style={styles.search}>
             <Feather
