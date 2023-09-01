@@ -1,76 +1,188 @@
-import React from "react"
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
-import topo from "../../../assets/logoFilms.png"
-import besouro from "../../../assets/Filmes/besouroAzul.jpg"
+import React from "react";
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+} from "react-native";
+import topo from "../../../assets/logoFilms.png";
+import besouro from "../../../assets/Filmes/besouroAzul.jpg";
+import missao from "../../../assets/Filmes/missaoImpossivel.jpg";
+import guardioes from "../../../assets/Filmes/guardioes.jpg";
 
-const width = Dimensions.get('screen').width;
+import Feather from "@expo/vector-icons/Feather";
+import Toolbar from "../../components/Toolbar";
 
-export default function Carrinho(){
-    return(
-      <>
-        <Image source={topo} style={styles.topo}/>
-        <View  style={styles.carrinho}>
-          <Text style={styles.nome}>Compre já seus filmes:</Text>
-          <View style={styles.fazenda}>
-            <Image source={besouro} style={styles.imgfazenda}/>
-          <Text style={styles.nomefazenda}>Besouro Azul</Text>
+const width = Dimensions.get("screen").width;
+
+export default function Carrinho() {
+  return (
+    
+    <>
+      <Toolbar/>
+
+      <ScrollView>
+        <Image source={topo} style={styles.topo} />
+        
+        <View style={styles.carrinho}>
+          <View style={styles.search}>
+            <Feather
+              name="search"
+              size={25}
+              color="#B22222"
+              style={styles.iconsearch}
+            />
+            <TextInput
+              placeholder="O que você está procurando?"
+              style={styles.searchtext}
+            ></TextInput>
+          </View>
+          <Text style={styles.nome}>Assista onde e como quiser</Text>
+          <Text style={styles.sobrenome}>Confira nosso catálogo:</Text>
+
+          {/* Começo Filmes */}
+
+          <View style={styles.container}>
+            <View style={styles.filme}>
+              <Text style={styles.nomefilme}>Besouro Azul</Text>
+              <Image source={besouro} style={styles.imgfilme} />
+            </View>
+
+            <Text style={styles.descricao}>
+              O adolescente Jaime Reyes ganha superpoderes quando um misterioso
+              escaravelho se prende à sua coluna e lhe fornece uma poderosa
+              armadura alienígena azul.
+            </Text>
+            <Text style={styles.preco}>R$60,00</Text>
           </View>
 
-          <Text style={styles.descricao}>Uma cesta com produtos selecionados cuidadosamente da fazenda direto para a sua cozinha</Text>
-          <Text style={styles.preco}>R$40,00</Text>
-        </View>
-      </>
+          {/* Espaço */}
 
-    );
+          <View style={styles.container}>
+            <View style={styles.filme}>
+              <Text style={styles.nomefilme}>Guardiões da Galáxia 3</Text>
+              <Image source={guardioes} style={styles.imgfilme} />
+            </View>
+
+            <Text style={styles.descricao}>
+              Peter Quill deve reunir sua equipe para defender o universo e
+              proteger um dos seus. Se a missão não for totalmente bem-sucedida,
+              isso pode levar ao fim dos Guardiões.
+            </Text>
+            <Text style={styles.preco}>R$60,00</Text>
+          </View>
+
+          {/* Espaço */}
+
+          <View style={styles.container}>
+            <View style={styles.filme}>
+              <Text style={styles.nomefilme}>Missão Impossível 7</Text>
+              <Image source={missao} style={styles.imgfilme} />
+            </View>
+
+            <Text style={styles.descricao}>
+              Ethan Hunt, agente do FMI, aventura-se novamente em "Missão
+              Impossível - Acerto de Contas Parte 1", sétimo longa da série de
+              filmes "Missão Impossível".
+            </Text>
+            <Text style={styles.preco}>R$60,00</Text>
+          </View>
+
+          {/* Fim Filmes */}
+        </View>
+      </ScrollView>
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
   topo: {
     width: "100%",
-    height: 578 / 768 * width
+    height: (200 / 500) * width,
   },
   titulo: {
     width: "100%",
-    position: 'absolute',
-    color: 'white',
-    textAlign: 'center',
+    position: "absolute",
+    color: "white",
+    textAlign: "center",
     fontSize: 24,
     lineHeight: 26,
     padding: 16,
-    fontFamily: 'MBold'
+    fontFamily: "DBold",
   },
   carrinho: {
     paddingVertical: 8,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+  },
+  search: {
+    flexDirection: "row",
+    marginTop: 15,
+    backgroundColor: "white",
+    alignSelf: "center",
+    height: 40,
+    width: 320,
+    borderRadius: 25,
+  },
+  iconsearch: {
+    marginLeft: 10,
+    alignSelf: "center",
+  },
+  searchtext: {
+    fontFamily: "DRegular",
+    width: 260,
+    textAlign: "center",
+  },
+  container: {
+    marginBottom: 20,
+    backgroundColor: "#3B3A39",
+    borderRadius: 25,
+    padding: 25,
   },
   nome: {
-    fontSize: 26,
+    marginTop: 10,
+    fontSize: 24,
     lineHeight: 42,
-    color: '#4646464',
-    fontFamily: 'MBold'
+    color: "#EEEE",
+    fontFamily: "DBold",
+    alignSelf: "center",
   },
-  fazenda: {
-    flexDirection: 'row',
-    paddingVertical: 12
+  sobrenome: {
+    fontSize: 20,
+    marginBottom: 10,
+    color: "#EEEE",
+    fontFamily: "DRegular",
+    alignSelf: "center",
   },
-  imgfazenda: {
-    width: 32,
-    height: 32,
+  filme: {
+    flexDirection: "column",
+    paddingVertical: 10,
+    alignItems: "center",
   },
-  nomefazenda: {
+  imgfilme: {
+    width: 150,
+    height: 250,
+    marginBottom: 5,
+    marginTop: 5,
+  },
+  nomefilme: {
     fontSize: 16,
-    fontFamily: 'MBold',
+    fontFamily: "DBold",
     lineHeight: 26,
-    marginLeft: 12
+    color: "white",
   },
   descricao: {
-    color: '#A3A3A3',
-    fontFamily: 'MItalic'
+    color: "#A3A3A3",
+    fontFamily: "DItalic",
+    textAlign: "justify",
   },
   preco: {
     fontSize: 26,
-    fontFamily: 'MRegular',
-    color: '#2A9F85',
-    marginTop: 8
-  }
+    fontFamily: "DRegular",
+    color: "#EEE8AA",
+    marginTop: 10,
+    alignSelf: "flex-end",
+  },
 });

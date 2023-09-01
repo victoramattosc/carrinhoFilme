@@ -4,7 +4,7 @@ import {
   DMSans_400Regular_Italic,
   DMSans_700Bold,
 } from "@expo-google-fonts/dm-sans";
-import { StatusBar, SafeAreaView } from "react-native";
+import { StatusBar, SafeAreaView, StyleSheet } from "react-native";
 import Carrinho from "./src/pages/Carrinho/index";
 
 export default function App() {
@@ -18,9 +18,16 @@ export default function App() {
     return null;
   }
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <StatusBar />
       <Carrinho />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#323130",
+  },
+});
