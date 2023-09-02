@@ -9,13 +9,16 @@ import {
   TextInput,
 } from "react-native";
 import topo from "../../../assets/logoFilms.png";
+import alternativo from "../../../assets/alternativeLogo.png";
 import besouro from "../../../assets/Filmes/besouroAzul.jpg";
 import missao from "../../../assets/Filmes/missaoImpossivel.jpg";
 import guardioes from "../../../assets/Filmes/guardioes.jpg";
 
 import Feather from "@expo/vector-icons/Feather";
 import Toolbar from "../../components/Toolbar";
-import Filmes from "../../components/Filmes";
+import Alta from "../../components/Filmes/Alta";
+import Lancamentos from "../../components/Filmes/Lancamentos";
+import Classicos from "../../components/Filmes/Classicos";
 
 const width = Dimensions.get("screen").width;
 
@@ -26,7 +29,7 @@ export default function Carrinho() {
       <Toolbar/>
 
       <ScrollView>
-        <Image source={topo} style={styles.topo} />
+        <Image source={alternativo} style={styles.topo} />
 
         <View style={styles.carrinho}>
           <View style={styles.search}>
@@ -44,7 +47,16 @@ export default function Carrinho() {
           <Text style={styles.nome}>Assista onde e como quiser</Text>
           <Text style={styles.sobrenome}>Confira nosso catálogo:</Text>
 
+          <Alta/>
+
+          <Lancamentos/>
+
+          <Classicos/>
+
           {/* Começo Filmes */}
+
+          <Text style={styles.nome}>Confira nossas promoções</Text>
+          <Text style={styles.sobrenome}>Só aqui no Somewere Films:</Text>
 
           <View style={styles.container}>
             <View style={styles.filme}>
@@ -57,7 +69,8 @@ export default function Carrinho() {
               escaravelho se prende à sua coluna e lhe fornece uma poderosa
               armadura alienígena azul.
             </Text>
-            <Text style={styles.preco}>R$60,00</Text>
+            <Text style={styles.precoAntigo}>R$60,00</Text>
+            <Text style={styles.preco}>R$59,99</Text>
           </View>
 
           {/* Espaço */}
@@ -73,7 +86,8 @@ export default function Carrinho() {
               proteger um dos seus. Se a missão não for totalmente bem-sucedida,
               isso pode levar ao fim dos Guardiões.
             </Text>
-            <Text style={styles.preco}>R$60,00</Text>
+            <Text style={styles.precoAntigo}>R$60,00</Text>
+            <Text style={styles.preco}>R$59,99</Text>
           </View>
 
           {/* Espaço */}
@@ -89,7 +103,8 @@ export default function Carrinho() {
               Impossível - Acerto de Contas Parte 1", sétimo longa da série de
               filmes "Missão Impossível".
             </Text>
-            <Text style={styles.preco}>R$60,00</Text>
+            <Text style={styles.precoAntigo}>R$60,00</Text>
+            <Text style={styles.preco}>R$59,99</Text>
           </View>
 
           {/* Fim Filmes */}
@@ -178,6 +193,14 @@ const styles = StyleSheet.create({
     color: "#A3A3A3",
     fontFamily: "DItalic",
     textAlign: "justify",
+  },
+  precoAntigo:{
+    fontSize: 26,
+    fontFamily: "DRegular",
+    color: "#A3A3A3",
+    marginTop: 10,
+    alignSelf: "flex-end",
+    textDecorationLine: 'line-through'
   },
   preco: {
     fontSize: 26,

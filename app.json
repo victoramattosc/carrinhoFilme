@@ -1,15 +1,14 @@
 {
   "expo": {
-    "name": "carrinhoFilmes",
+    "name": "Somewere Films",
     "slug": "carrinhoFilmes",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/favicon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "contain"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,8 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icon.png"
       }
     },
     "web": {

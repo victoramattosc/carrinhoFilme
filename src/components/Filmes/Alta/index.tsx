@@ -1,45 +1,35 @@
-import { useState, useRef } from "react";
-import {
-  View,
-  FlatList,
-  Dimensions,
-  TouchableOpacity,
-  Text,
-  Image,
-} from "react-native";
-import Feather from "@expo/vector-icons/Feather";
+import { useState, useEffect, useRef } from "react";
+import { View, FlatList, Image, Dimensions, Text } from "react-native";
+
+import React from "react";
 
 import { StyleSheet } from "react-native";
 
-import besouro from "../../../assets/Filmes/besouroAzul.jpg";
-import missao from "../../../assets/Filmes/missaoImpossivel.jpg";
-import guardioes from "../../../assets/Filmes/guardioes.jpg";
 
 const DATA = [
   {
-    image: "../../../assets/Filmes/besouro.jpg",
+    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gA6sEygZlszxZZZTR5jD9rfleZO.jpg",
     name: "Besouro Azul",
-    descricao:
-      "O adolescente Jaime Reyes ganha superpoderes quando um misterioso escaravelho se prende à sua coluna e lhe fornece uma poderosa armadura alienígena azul.",
-    preco: "R$60,00",
   },
   {
-    image: "../../../assets/Filmes/guardioes.jpg",
+    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4yycSPnchdNAZirGkmCYQwTd3cr.jpg",
     name: "Guardiões da Galáxia",
-    descricao:
-      "Peter Quill deve reunir sua equipe para defender o universo e proteger um dos seus. Se a missão não for totalmente bem-sucedida, isso pode levar ao fim dos Guardiões.",
-    preco: "R$60,00",
   },
   {
-    image: "../../../assets/Filmes/missao.jpg",
+    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8hjno4uE19pm0qlfUDcM8e5WK13.jpg",
     name: "Missão Impossível 7",
-    descricao:
-      "Ethan Hunt, agente do FMI, aventura-se novamente em Missão Impossível - Acerto de Contas Parte 1, sétimo longa da série de filmes Missão Impossível",
-    preco: "R$60,00",
+  },
+  {
+    image: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4CwKj1fw33BXYzxvrpM3GlAhK4L.jpg",
+    name: "Homem-Aranha: Através do Aranhaverso",
+  },
+  {
+    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aefB62fAcx2OxoaSWMEPt5ezvHQ.jpg",
+    name: "Oppenheimer",
   },
 ];
 
-export default function Filmes() {
+export default function Alta() {
   const [activeBanner, setActiveBanner] = useState<number>(0);
   const FlatlistRef = useRef<FlatList>(null);
 
@@ -58,49 +48,50 @@ export default function Filmes() {
     },
   ]);
 
+
   return (
-    <View style={{ alignItems: "center" }}>
+    <>
+    <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
+      Em Alta:
+    </Text>
+    <View
+      style={{
+        alignItems: "center",
+        marginBottom: 20,
+        backgroundColor: "#3B3A39",
+        borderRadius: 25,
+        padding: 25,
+      }}
+    >
       <FlatList
         ref={FlatlistRef}
         data={DATA}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <View
             style={{
-              width: Dimensions.get("screen").width * 0.08,
+              width: 130,
               alignItems: "center",
-              height: 15,
-              marginHorizontal: 3.8,
+              height: 200,
+              marginHorizontal: 6.5,
             }}
           >
-            <Text
-              style={{ fontFamily: "DBold", alignSelf: "center" }}
-            >
-              {item.name}
-            </Text>
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: item.image,
-                }}
-                style={styles.imgfilme}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-            <Text style={styles.descricao}>
-              Ethan Hunt, agente do FMI, aventura-se novamente em "Missão
-              Impossível - Acerto de Contas Parte 1", sétimo longa da série de
-              filmes "Missão Impossível".
-            </Text>
-            <Text style={styles.preco}>R$60,00</Text>
+            <Image
+              source={{
+                uri: item.image,
+              }}
+              style={styles.imgfilme}
+              resizeMode="contain"
+            />
           </View>
         )}
         pagingEnabled
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
-        keyExtractor={(index) => String(index)}
+        keyExtractor={(item, index) => String(index)}
         showsHorizontalScrollIndicator={false}
       />
     </View>
+    </>
   );
 }
 /*
@@ -165,5 +156,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: "flex-end",
   },
-
-})
+});
