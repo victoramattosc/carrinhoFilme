@@ -19,14 +19,14 @@ import Toolbar from "../../components/Toolbar";
 import Alta from "../../components/Filmes/Alta";
 import Lancamentos from "../../components/Filmes/Lancamentos";
 import Classicos from "../../components/Filmes/Classicos";
+/*import { Data } from "../../Data/Data";*/
 
 const width = Dimensions.get("screen").width;
 
 export default function Carrinho() {
   return (
-
     <>
-      <Toolbar/>
+      <Toolbar />
 
       <ScrollView>
         <Image source={alternativo} style={styles.topo} />
@@ -47,11 +47,13 @@ export default function Carrinho() {
           <Text style={styles.nome}>Assista onde e como quiser</Text>
           <Text style={styles.sobrenome}>Confira nosso catálogo:</Text>
 
-          <Alta/>
+          {/*<Data/>*/}
 
-          <Lancamentos/>
+          <Alta />
 
-          <Classicos/>
+          <Lancamentos />
+
+          <Classicos />
 
           {/* Começo Filmes */}
 
@@ -194,13 +196,13 @@ const styles = StyleSheet.create({
     fontFamily: "DItalic",
     textAlign: "justify",
   },
-  precoAntigo:{
+  precoAntigo: {
     fontSize: 26,
     fontFamily: "DRegular",
     color: "#A3A3A3",
     marginTop: 10,
     alignSelf: "flex-end",
-    textDecorationLine: 'line-through'
+    textDecorationLine: "line-through",
   },
   preco: {
     fontSize: 26,

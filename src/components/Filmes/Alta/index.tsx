@@ -29,6 +29,8 @@ const DATA = [
   },
 ];
 
+
+
 export default function Alta() {
   const [activeBanner, setActiveBanner] = useState<number>(0);
   const FlatlistRef = useRef<FlatList>(null);
@@ -69,9 +71,9 @@ export default function Alta() {
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: 130,
+              width: 120,
               alignItems: "center",
-              height: 200,
+              height: 180,
               marginHorizontal: 6.5,
             }}
           >

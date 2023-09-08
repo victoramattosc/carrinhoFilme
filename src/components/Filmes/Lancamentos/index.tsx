@@ -29,6 +29,7 @@ const DATA = [
   },
 ];
 
+
 export default function Lancamentos() {
   const [activeBanner, setActiveBanner] = useState<number>(0);
   const FlatlistRef = useRef<FlatList>(null);
@@ -69,9 +70,9 @@ export default function Lancamentos() {
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: 130,
+              width: 120,
               alignItems: "center",
-              height: 200,
+              height: 180,
               marginHorizontal: 6.5,
             }}
           >
