@@ -5,52 +5,10 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-
-const DATA = [
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gA6sEygZlszxZZZTR5jD9rfleZO.jpg",
-    name: "Besouro Azul",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4yycSPnchdNAZirGkmCYQwTd3cr.jpg",
-    name: "Guardiões da Galáxia",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8hjno4uE19pm0qlfUDcM8e5WK13.jpg",
-    name: "Missão Impossível 7",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4CwKj1fw33BXYzxvrpM3GlAhK4L.jpg",
-    name: "Homem-Aranha: Através do Aranhaverso",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aefB62fAcx2OxoaSWMEPt5ezvHQ.jpg",
-    name: "Oppenheimer",
-  },
-];
-
+import  { filmesData } from "../../../Data/FilmesData";
 
 
 export default function Alta() {
-  const [activeBanner, setActiveBanner] = useState<number>(0);
-  const FlatlistRef = useRef<FlatList>(null);
-
-  const onViewableItemsChanged = ({ viewableItems }: any) => {
-    if (viewableItems[0] !== undefined) {
-      setActiveBanner(viewableItems[0]?.index);
-    }
-  };
-
-  const viewabilityConfigCallbackPairs = useRef([
-    {
-      viewabilityConfig: {
-        itemVisiblePercentThreshold: 80,
-      },
-      onViewableItemsChanged,
-    },
-  ]);
-
-
   return (
     <>
     <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
@@ -66,9 +24,8 @@ export default function Alta() {
       }}
     >
       <FlatList
-        ref={FlatlistRef}
-        data={DATA}
-        renderItem={({ item, index }) => (
+        data={filmesData}
+        renderItem={({ item }) => (
           <View
             style={{
               width: 120,
@@ -79,17 +36,14 @@ export default function Alta() {
           >
             <Image
               source={{
-                uri: item.image,
+                uri: item.img,
               }}
               style={styles.imgfilme}
               resizeMode="contain"
             />
           </View>
         )}
-        pagingEnabled
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
-        keyExtractor={(item, index) => String(index)}
         showsHorizontalScrollIndicator={false}
       />
     </View>

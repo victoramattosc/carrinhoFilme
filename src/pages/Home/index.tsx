@@ -19,7 +19,7 @@ import Toolbar from "../../components/Toolbar";
 import Alta from "../../components/Filmes/Alta";
 import Lancamentos from "../../components/Filmes/Lancamentos";
 import Classicos from "../../components/Filmes/Classicos";
-/*import { Data } from "../../Data/Data";*/
+/*import Interface from "../Interface";*/
 
 const width = Dimensions.get("screen").width;
 

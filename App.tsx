@@ -5,7 +5,7 @@ import {
   DMSans_700Bold,
 } from "@expo-google-fonts/dm-sans";
 import { StatusBar, SafeAreaView, StyleSheet } from "react-native";
-import Carrinho from "./src/pages/Carrinho/index";
+import Carrinho from "./src/pages/Home/index";
 
 export default function App() {
   const [fonteCarregada] = useFonts({

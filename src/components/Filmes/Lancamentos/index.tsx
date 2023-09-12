@@ -31,25 +31,6 @@ const DATA = [
 
 
 export default function Lancamentos() {
-  const [activeBanner, setActiveBanner] = useState<number>(0);
-  const FlatlistRef = useRef<FlatList>(null);
-
-  const onViewableItemsChanged = ({ viewableItems }: any) => {
-    if (viewableItems[0] !== undefined) {
-      setActiveBanner(viewableItems[0]?.index);
-    }
-  };
-
-  const viewabilityConfigCallbackPairs = useRef([
-    {
-      viewabilityConfig: {
-        itemVisiblePercentThreshold: 80,
-      },
-      onViewableItemsChanged,
-    },
-  ]);
-
-
   return (
     <>
     <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
@@ -65,7 +46,6 @@ export default function Lancamentos() {
       }}
     >
       <FlatList
-        ref={FlatlistRef}
         data={DATA}
         renderItem={({ item, index }) => (
           <View
@@ -85,10 +65,7 @@ export default function Lancamentos() {
             />
           </View>
         )}
-        pagingEnabled
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
-        keyExtractor={(item, index) => String(index)}
         showsHorizontalScrollIndicator={false}
       />
     </View>

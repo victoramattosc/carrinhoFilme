@@ -1,4 +1,4 @@
-[
+export const filmesData = [
   {
     "id": 1,
     "nome": "Besouro Azul",
@@ -106,10 +106,10 @@
   {
     "id": 14,
     "nome": "Gran Turismo - De Jogador a Corredor",
-    "desc": "O adolescente Jaime Reyes ganha superpoderes quando um misterioso escaravelho se prende à sua coluna e lhe fornece uma poderosa armadura alienígena azul.",
+    "desc": "Baseado na história de Jann Mardenborough, e relata a trajetória de um jogador de videogame que utilizou suas habilidades nos simuladores para se tornar um piloto profissional de verdade.",
     "categoria": "Lançamentos",
     "preco": 60.00,
-    "img": "Baseado na história de Jann Mardenborough, e relata a trajetória de um jogador de videogame que utilizou suas habilidades nos simuladores para se tornar um piloto profissional de verdade."
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qU60nhBRbKU23gIGrZi2CvUj6MQ.jpg"
   },
   {
     "id": 15,
