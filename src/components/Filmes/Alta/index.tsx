@@ -5,14 +5,20 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-import  { filmesData } from "../../../Data/FilmesData";
+
+type Props = {
+  categoria: string,
+  filmes: {img: string}[],
+}
 
 
-export default function Alta() {
+
+export default function Alta({categoria, filmes}: Props) {
+
   return (
     <>
     <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
-      Em Alta:
+      {categoria}
     </Text>
     <View
       style={{
@@ -24,7 +30,7 @@ export default function Alta() {
       }}
     >
       <FlatList
-        data={filmesData}
+        data={filmes}
         renderItem={({ item }) => (
           <View
             style={{

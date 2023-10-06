@@ -19,7 +19,9 @@ import Toolbar from "../../components/Toolbar";
 import Alta from "../../components/Filmes/Alta";
 import Lancamentos from "../../components/Filmes/Lancamentos";
 import Classicos from "../../components/Filmes/Classicos";
+
 /*import Interface from "../Interface";*/
+import  { filmesData }  from '../../data/filmesData';
 
 const width = Dimensions.get("screen").width;
 
@@ -49,7 +51,7 @@ export default function Carrinho() {
 
           {/*<Data/>*/}
 
-          <Alta />
+          <Alta categoria={filmesData.emalta.categoria} filmes={filmesData.emalta.filmes}/>
 
           <Lancamentos />
 
