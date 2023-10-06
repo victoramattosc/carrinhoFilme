@@ -5,36 +5,17 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-
-const DATA = [
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8tBhAn6qVRQzf5yvEcxjgPMgTkw.jpg",
-    name: "Megatubarão 2",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/x0naXPYoLxzTzRgwKhzAjQPngnw.jpg",
-    name: "As Tartarugas Ninjas: Caos Mutante",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg",
-    name: "Barbie",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1FRIsFSl1AOpmpBIRnUFqO6U06A.jpg",
-    name: "Gran Turismo - De Jogador a Corredor",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dTGWmsQMcH5FwRqC3CS0qW3sbRZ.jpg",
-    name: "Ruim pra Cachorro",
-  },
-];
+type Props = {
+  categoria: string,
+  filmes: {img: string}[],
+}
 
 
-export default function Lancamentos() {
+export default function Lancamentos({categoria, filmes}: Props) {
   return (
     <>
     <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
-      Lançamentos:
+      {categoria}
     </Text>
     <View
       style={{
@@ -46,7 +27,7 @@ export default function Lancamentos() {
       }}
     >
       <FlatList
-        data={DATA}
+        data={filmes}
         renderItem={({ item, index }) => (
           <View
             style={{
@@ -58,7 +39,7 @@ export default function Lancamentos() {
           >
             <Image
               source={{
-                uri: item.image,
+                uri: item.img,
               }}
               style={styles.imgfilme}
               resizeMode="contain"

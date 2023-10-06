@@ -6,6 +6,7 @@ import {
 } from "@expo-google-fonts/dm-sans";
 import { StatusBar, SafeAreaView, StyleSheet } from "react-native";
 import Carrinho from "./src/pages/Home/index";
+import { Routes } from "./src/routes";
 
 export default function App() {
   const [fonteCarregada] = useFonts({
@@ -20,7 +21,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar />
-      <Carrinho />
+      <Routes/>
     </SafeAreaView>
   );
 }

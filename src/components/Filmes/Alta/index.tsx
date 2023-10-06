@@ -1,9 +1,16 @@
 import { useState, useEffect, useRef } from "react";
-import { View, FlatList, Image, Dimensions, Text } from "react-native";
+import { View, FlatList, Image, Dimensions, Text, TouchableOpacity } from "react-native";
 
 import React from "react";
 
 import { StyleSheet } from "react-native";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { useNavigation } from "@react-navigation/native";
+
+const width = Dimensions.get("screen").width;
+const Stack = createNativeStackNavigator();
 
 
 type Props = {
@@ -14,7 +21,7 @@ type Props = {
 
 
 export default function Alta({categoria, filmes}: Props) {
-
+  const { navigate } = useNavigation();
   return (
     <>
     <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
@@ -32,7 +39,10 @@ export default function Alta({categoria, filmes}: Props) {
       <FlatList
         data={filmes}
         renderItem={({ item }) => (
-          <View
+          <TouchableOpacity
+          onPress={() => {
+            navigate("Interface");
+          }}
             style={{
               width: 120,
               alignItems: "center",
@@ -47,7 +57,7 @@ export default function Alta({categoria, filmes}: Props) {
               style={styles.imgfilme}
               resizeMode="contain"
             />
-          </View>
+          </TouchableOpacity>
         )}
         horizontal
         showsHorizontalScrollIndicator={false}

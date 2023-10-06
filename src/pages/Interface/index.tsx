@@ -1,34 +1,16 @@
-/*import { View, Text, Image, FlatList, VirtualizedList } from "react-native";
+import { View, Text, FlatList, VirtualizedList, Image } from "react-native";
 import { useRef } from "react";
 
-import { filmesData } from "../../Data/FilmesData";
+type Props = {
+  categoria: string,
+  filmes: {nome: string, descricao: string, preco: number, img: string}[],
+}
 
-export default function Interface() {
-  const FlatlistRef = useRef<FlatList>(null);
+
+export default function Interface({categoria, filmes}: Props) {
   return (
     <>
-      <FlatList
-        keyExtractor={(item) => item.id}
-        data={filmesData}
-        renderItem={({ item }) => (
-          <View>
-            <Text>{item.nome}</Text>
-            <Image
-              source={{
-                uri: item.img,
-              }}
-              styles={{
-                width: "100%",
-                height: "100%",
-                alignSelf: "center",
-                borderRadius: 8,
-              }}
-              resizeMode="contain"
-            />
-            <Text>{item.desc}</Text>
-          </View>
-        )}
-      />
+
     </>
   );
-}*/
+}

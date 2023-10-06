@@ -5,36 +5,18 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-const DATA = [
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aJZOcorpgloDLkPP6ED0t9sXjNu.jpg",
-    name: "As Branquelas",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/daorfyZdHkI44vuf3DVDbmJkYQI.jpg",
-    name: "Todo Mundo em Pânico",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/slyJHnhfs2rP6KmCwm0EbKq3hoz.jpg",
-    name: "Super Herói - O Filme",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/v8ct2LskBXLcPHrW3uvtpyTcwfl.jpg",
-    name: "Esposa de Mentirinha",
-  },
-  {
-    image: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ppU2xJnlKdW3F01AtC9wMuXRZCg.jpg",
-    name: "Gente Grande",
-  },
-];
+type Props = {
+  categoria: string,
+  filmes: {img: string}[],
+}
 
 
 
-export default function Classicos() {
+export default function Classicos({categoria, filmes}: Props) {
   return (
     <>
     <Text style={{fontFamily: 'DBold', color: 'white', marginBottom: 10}}>
-      Clássicos:
+      {categoria}
     </Text>
     <View
       style={{
@@ -46,7 +28,7 @@ export default function Classicos() {
       }}
     >
       <FlatList
-        data={DATA}
+        data={filmes}
         renderItem={({ item, index }) => (
           <View
             style={{
@@ -58,7 +40,7 @@ export default function Classicos() {
           >
             <Image
               source={{
-                uri: item.image,
+                uri: item.img,
               }}
               style={styles.imgfilme}
               resizeMode="contain"

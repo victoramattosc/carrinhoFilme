@@ -1,4 +1,4 @@
-export const filmesData = {
+const filmesData = {
   emalta: {
     categoria: "Em Alta: ",
     filmes: [
@@ -105,3 +105,5 @@ export const filmesData = {
     ],
   },
 };
+
+export default filmesData;

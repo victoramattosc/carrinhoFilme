@@ -7,6 +7,7 @@ import {
   Text,
   View,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import topo from "../../../assets/logoFilms.png";
 import alternativo from "../../../assets/alternativeLogo.png";
@@ -17,20 +18,27 @@ import guardioes from "../../../assets/Filmes/guardioes.jpg";
 import Feather from "@expo/vector-icons/Feather";
 import Toolbar from "../../components/Toolbar";
 import Alta from "../../components/Filmes/Alta";
+("");
 import Lancamentos from "../../components/Filmes/Lancamentos";
 import Classicos from "../../components/Filmes/Classicos";
 
 /*import Interface from "../Interface";*/
-import  { filmesData }  from '../../data/filmesData';
+import filmesData from "../../data/filmesData";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { useNavigation } from "@react-navigation/native";
 
 const width = Dimensions.get("screen").width;
+const Stack = createNativeStackNavigator();
 
 export default function Carrinho() {
+  const { navigate } = useNavigation();
   return (
     <>
       <Toolbar />
 
-      <ScrollView>
+      <ScrollView style={{backgroundColor: '#323130'}}>
         <Image source={alternativo} style={styles.topo} />
 
         <View style={styles.carrinho}>
@@ -51,18 +59,32 @@ export default function Carrinho() {
 
           {/*<Data/>*/}
 
-          <Alta categoria={filmesData.emalta.categoria} filmes={filmesData.emalta.filmes}/>
+          <Alta
+            categoria={filmesData.emalta.categoria}
+            filmes={filmesData.emalta.filmes}
+          />
 
-          <Lancamentos />
+          <Lancamentos
+            categoria={filmesData.lancamentos.categoria}
+            filmes={filmesData.lancamentos.filmes}
+          />
 
-          <Classicos />
+          <Classicos
+            categoria={filmesData.classicos.categoria}
+            filmes={filmesData.classicos.filmes}
+          />
 
           {/* Começo Filmes */}
 
           <Text style={styles.nome}>Confira nossas promoções</Text>
           <Text style={styles.sobrenome}>Só aqui no Somewere Films:</Text>
 
-          <View style={styles.container}>
+          <TouchableOpacity
+            onPress={() => {
+              navigate("Interface");
+            }}
+            style={styles.container}
+          >
             <View style={styles.filme}>
               <Text style={styles.nomefilme}>Besouro Azul</Text>
               <Image source={besouro} style={styles.imgfilme} />
@@ -75,7 +97,7 @@ export default function Carrinho() {
             </Text>
             <Text style={styles.precoAntigo}>R$60,00</Text>
             <Text style={styles.preco}>R$59,99</Text>
-          </View>
+          </TouchableOpacity>
 
           {/* Espaço */}
 
