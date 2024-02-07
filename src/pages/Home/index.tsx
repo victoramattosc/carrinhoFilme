@@ -23,7 +23,7 @@ import Lancamentos from "../../components/Filmes/Lancamentos";
 import Classicos from "../../components/Filmes/Classicos";
 
 /*import Interface from "../Interface";*/
-import filmesData from "../../data/filmesData";
+import filmesData from "../../Data/FilmesData";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
